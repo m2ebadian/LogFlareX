@@ -1,8 +1,12 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from .models import Base
+from dotenv import load_dotenv
+import os
 
-DATABASE_URL = "postgresql://logflarex:logflarex@localhost:5432/logflarex"
+load_dotenv()  # Load variables from .env
+
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 # Create database engine
 engine = create_engine(DATABASE_URL)
