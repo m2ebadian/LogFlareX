@@ -1,7 +1,6 @@
 # LogflareX Backend
 
 A high-performance FastAPI + PostgreSQL logging system with production-grade observability using Prometheus and Grafana.  
-Built to demonstrate **Site Reliability Engineering (SRE)** practices.
 
 ---
 
