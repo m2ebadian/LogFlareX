@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:14
+    container_name: logflarex-db
+    restart: always
+    environment:
+      POSTGRES_USER: logflarex
+      POSTGRES_PASSWORD: logflarex
+      POSTGRES_DB: logflarex
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    container_name: logflarex-backend
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+
+volumes:
+  postgres_data:
